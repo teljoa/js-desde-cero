@@ -1,0 +1,103 @@
+/* Estilo base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo del formulario */
+#acronym-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+#acronym-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#acronym-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#acronym-form button:hover {
+    background-color: #0056b3;
+}
+
+#acronym-form button#reset {
+    background-color: #6c757d;
+}
+
+#acronym-form button#reset:hover {
+    background-color: #495057;
+}
+
+/* Estilo para la lista de acrónimos */
+#acronym-list {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    min-height: 100px;
+}
+
+.acronym-item {
+    background-color: #e9ecef;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.long-phrase {
+    color: red;
+    font-weight: bold;
+}
+
+/* Estilo para el botón de reinicio */
+#reset {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 600px) {
+    #acronym-form {
+        width: 90%;
+    }
+
+    #acronym-list {
+        width: 90%;
+    }
+}
