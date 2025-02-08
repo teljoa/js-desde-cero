@@ -41,6 +41,8 @@ correctamente el nombre y el código de la tecla pulsada.
 //document.body.addEventListener("keydown", (event) => {
 //    alert(`La tecla : ${event.key}  .Ha sido pulsada, su codigo es: ${event.code}.`)
 //})
+//Este codigo esta comentado porque si no cada ve que pulso una tecla en la pagina sale el mensaje 
+// de haberla pulsado.
 /*
 Ejercicio 3: Captura y Propagación
 3.1. Crea una lista desordenada (<ul>) con varios elementos de lista (<li>) dentro. 

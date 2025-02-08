@@ -1,84 +1,58 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const fridgeList = document.getElementById('fridge-list');
-    const shoppingList = document.getElementById('shopping-list');
-    const fridgeForm = document.getElementById('add-to-fridge-form');
-    const fridgeProductNameInput = document.getElementById('product-name-fridge');
-    const fridgeProductQuantityInput = document.getElementById('product-quantity-fridge');
-    const shoppingForm = document.getElementById('add-to-shopping-list-form');
-    const shoppingProductNameInput = document.getElementById('product-name-shopping');
-    const shoppingProductQuantityInput = document.getElementById('product-quantity-shopping');
+document.addEventListener('DOMContentLoaded', () => {
+    const fridgeList = document.querySelector('#fridge-list');
+    const shoppingList = document.querySelector('#shopping-list');
+    const forms = document.querySelectorAll('form');
 
-    fridgeForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        addProductToList(fridgeList, fridgeProductNameInput, fridgeProductQuantityInput);
+    forms.forEach(form => {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const [nameInput, quantityInput] = form.querySelectorAll('input');
+            const list = form.id.includes('fridge') ? fridgeList : shoppingList;
+            addProductToList(list, nameInput, quantityInput);
+        });
     });
 
-    shoppingForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        addProductToList(shoppingList, shoppingProductNameInput, shoppingProductQuantityInput);
-    });
+    document.addEventListener('click', e => {
+        if (!e.target.classList.contains('delete-product')) return;
+        
+        const listItem = e.target.parentElement;
+        const list = listItem.parentElement;
+        listItem.remove();
 
-    document.addEventListener('click', function (e) {
-        if (e.target && e.target.classList.contains('delete-product')) {
-            const listItem = e.target.parentElement;
-            const list = listItem.parentElement;
-            list.removeChild(listItem);
-
-            if (list === fridgeList) {
-                const shoppingListItem = listItem.cloneNode(true);
-                shoppingList.appendChild(shoppingListItem);
-            }
-            updateLocalStorage();
-        }
+        if (list === fridgeList) shoppingList.appendChild(listItem.cloneNode(true));
+        updateLocalStorage();
     });
 
     function addProductToList(list, nameInput, quantityInput) {
-        const productName = nameInput.value;
-        const productQuantity = quantityInput.value;
+        if (!nameInput.value || quantityInput.value <= 0) return;
 
-        if (productName && productQuantity > 0) {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `${productName} (${productQuantity}) <button class="btn btn-danger delete-product">Eliminar</button>`;
-            listItem.className = 'list-group-item';
-            list.appendChild(listItem);
-            nameInput.value = '';
-            quantityInput.value = '';
-            updateLocalStorage();
-        }
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item';
+        listItem.innerHTML = `${nameInput.value} (${quantityInput.value}) 
+            <button class="btn btn-danger delete-product">Eliminar</button>`;
+        list.appendChild(listItem);
+
+        nameInput.value = '';
+        quantityInput.value = '';
+        updateLocalStorage();
     }
 
     function updateLocalStorage() {
-        const fridgeItems = [];
-        const shoppingItems = [];
-
-        for (const item of fridgeList.children) {
-            fridgeItems.push(item.innerHTML);
-        }
-        for (const item of shoppingList.children) {
-            shoppingItems.push(item.innerHTML);
-        }
-        localStorage.setItem('fridgeItems', JSON.stringify(fridgeItems));
-        localStorage.setItem('shoppingItems', JSON.stringify(shoppingItems));
+        const saveList = list => [...list.children].map(item => item.innerHTML);
+        localStorage.setItem('fridgeItems', JSON.stringify(saveList(fridgeList)));
+        localStorage.setItem('shoppingItems', JSON.stringify(saveList(shoppingList)));
     }
 
     function loadFromLocalStorage() {
-        const fridgeItems = JSON.parse(localStorage.getItem('fridgeItems')) || [];
-        const shoppingItems = JSON.parse(localStorage.getItem('shoppingItems')) || [];
+        const loadList = (items, list) => items.forEach(item => {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = item;
+            addProductToList(list, { value: tempDiv.textContent.split(' (')[0] }, { value: tempDiv.textContent.match(/\d+/)[0] });
+        });
 
-        for (const item of fridgeItems) {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = item;
-            listItem.className = 'list-group-item';
-            listItem.innerHTML += ' <button class="btn btn-danger delete-product">Eliminar</button>';
-            fridgeList.appendChild(listItem);
-        }
-        for (const item of shoppingItems) {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = item;
-            listItem.className = 'list-group-item';
-            listItem.innerHTML += ' <button class="btn btn-danger delete-product">Eliminar</button>';
-            shoppingList.appendChild(listItem);
-        }
+        loadList(JSON.parse(localStorage.getItem('fridgeItems')) || [], fridgeList);
+        loadList(JSON.parse(localStorage.getItem('shoppingItems')) || [], shoppingList);
     }
+
     loadFromLocalStorage();
 });

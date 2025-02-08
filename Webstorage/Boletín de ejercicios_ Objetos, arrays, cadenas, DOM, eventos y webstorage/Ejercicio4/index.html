@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Libros</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Tienda de Libros</h1>
+    <form id="book-form">
+        <input type="text" id="title" placeholder="Título" required>
+        <input type="text" id="author" placeholder="Autor" required>
+        <input type="number" id="price" placeholder="Precio" required>
+        <select id="category">
+            <option value="" disabled selected>Seleccione una categoría</option>
+            <option value="Non-fiction">Non-fiction</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Ciencia">Ciencia</option>
+            <option value="Historia">Historia</option>
+        </select>
+        <button type="submit">Añadir Libro</button>
+    </form>
+    <select id="filter-category">
+        <option value="">Todas las categorías</option>
+        <option value="Fiction">Ficción</option>
+        <option value="Non-fiction">No Ficción</option>
+        <option value="Ciencia">Ciencia</option>
+        <option value="Historia">Historia</option>
+    </select>  
+    <button id="sort-asc">Ordenar por Precio Ascendente</button>
+    <button id="sort-desc">Ordenar por Precio Descendente</button>
+    <table id="book-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Precio</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button id="reset-inventory" class="reset-button">Resetear Inventario</button>
+    <script src="index.js"></script>
+</body>
+</html>

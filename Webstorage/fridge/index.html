@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Frigorífico y Lista de Compra</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container mt-4">
-        <h1 class="text-center">Gestión de Frigorífico y Lista de Compra</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Frigorífico</h2>
-                <ul id="fridge-list" class="list-group">
-                </ul>
-                <form id="add-to-fridge-form">
-                    <div class="form-group">
-                        <label for="product-name-fridge">Nombre del Producto:</label>
-                        <input type="text" class="form-control" id="product-name-fridge" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product-quantity-fridge">Cantidad:</label>
-                        <input type="number" class="form-control" id="product-quantity-fridge" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Agregar al Frigorífico</button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <h2>Lista de Compra</h2>
-                <ul id="shopping-list" class="list-group">
-                </ul>
-                <form id="add-to-shopping-list-form">
-                    <div class="form-group">
-                        <label for="product-name-shopping">Nombre del Producto:</label>
-                        <input type="text" class="form-control" id="product-name-shopping" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product-quantity-shopping">Cantidad:</label>
-                        <input type="number" class="form-control" id="product-quantity-shopping" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Agregar a la Lista de Compra</button>
-                </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Frigorífico y Lista de Compra</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <h1 class="text-center">Gestión de Frigorífico y Lista de Compra</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Frigorífico</h2>
+                    <ul id="fridge-list" class="list-group">
+                    </ul>
+                    <form id="add-to-fridge-form">
+                        <div class="form-group">
+                            <label for="product-name-fridge">Nombre del Producto:</label>
+                            <input type="text" class="form-control" id="product-name-fridge" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-quantity-fridge">Cantidad:</label>
+                            <input type="number" class="form-control" id="product-quantity-fridge" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar al Frigorífico</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h2>Lista de Compra</h2>
+                    <ul id="shopping-list" class="list-group">
+                    </ul>
+                    <form id="add-to-shopping-list-form">
+                        <div class="form-group">
+                            <label for="product-name-shopping">Nombre del Producto:</label>
+                            <input type="text" class="form-control" id="product-name-shopping" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-quantity-shopping">Cantidad:</label>
+                            <input type="number" class="form-control" id="product-quantity-shopping" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar a la Lista de Compra</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
