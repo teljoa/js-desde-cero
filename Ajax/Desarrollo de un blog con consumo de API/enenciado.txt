@@ -1,0 +1,39 @@
+Desarrollo de un Blog con Consumo de API
+
+Objetivo: El objetivo de esta tarea es que los estudiantes apliquen sus conocimientos en el desarrollo de aplicaciones web consumiendo una API creada con 
+json-server. A lo largo de la tarea, los estudiantes crearán un sencillo blog que mostrará una lista de artículos con título y nombre del autor en la 
+pantalla principal. Además, si hacen click en un artículo, los usuarios podrán ver los detalles de un artículo, incluyendo el título, autor, contenido y 
+comentarios. También podrán agregar nuevos comentarios a los artículos.
+
+Instrucciones:
+
+1.Configuración inicial:
+    Crea una base de datos utilizando json-server para simular una API. La API debe incluir tres endpoints: "articles", "users", y "comments".
+
+        articles: id, title, content, autorId
+        users: id, name, email.
+        comments: id, comment, userId, articleId
+
+2.Pantalla Principal:
+    En la pantalla principal de tu aplicación, muestra una lista de artículos con al menos el título y el autor. Los datos deben ser recuperados de la API.
+
+3.Detalles del Artículo:
+    Cuando un usuario haga clic en un artículo de la lista en la pantalla principal, deben ser llevados a una página de detalles del artículo.
+
+    En la página de detalles del artículo, muestra el título, el autor, el contenido del artículo y los comentarios asociados. Debes recuperar estos datos 
+    de la API.
+
+4.Comentarios:
+    Al final del artículo en la página de detalles, muestra un formulario para agregar un comentario.
+
+        El formulario debe incluir dos campos:
+        Un campo de tipo "select" que permita al usuario seleccionar el autor del comentario. Los nombres de los autores deben cargarse desde el endpoint 
+        "users" de la API.
+
+        Un campo de texto para ingresar el contenido del comentario.
+        Los comentarios deben guardarse en el endpoint "comments" de la API, y debes asociar cada comentario al artículo y al autor correspondiente.
+
+5.Entrega:
+    Asegúrate de que tu aplicación sea completamente funcional y que los datos se guarden correctamente en la API.
+
+    Sube tu código a un repositorio privado de GitHub e invita al usuario joadelviajaca para que pueda ser revisada.

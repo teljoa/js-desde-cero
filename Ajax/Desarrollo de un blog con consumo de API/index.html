@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog con AJAX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Blog</h1>
+    <ul id="articlesList"></ul>
+
+    <div id="articleDetails" style="display: none;">
+        <h2 id="articleTitle"></h2>
+        <p id="articleAuthor"></p>
+        <p id="articleContent"></p>
+
+        <h3>Comentarios</h3>
+        <ul id="commentsList"></ul>
+
+        <h3>Agregar Comentario</h3>
+        <select id="userSelect"></select>
+        <input type="text" id="newComment" placeholder="Escribe un comentario">
+        <button onclick="addComment()">Enviar</button>
+
+        <button onclick="showHome()">Volver</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

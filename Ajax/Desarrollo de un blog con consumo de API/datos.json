@@ -1,0 +1,48 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Primer Post",
+      "content": "Este es el contenido del primer post",
+      "autorId": 1
+    },
+    {
+      "id": "2",
+      "title": "Segundo Post",
+      "content": "Contenido del segundo post",
+      "autorId": 2
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Juan Pérez",
+      "email": "juan@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Ana Gómez",
+      "email": "ana@example.com"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "comment": "Buen artículo",
+      "userId": 2,
+      "articleId": 1
+    },
+    {
+      "id": "f615",
+      "comment": "itkj",
+      "userId": 1,
+      "articleId": 1
+    },
+    {
+      "id": "2000",
+      "comment": "hjkiuyj",
+      "userId": 2,
+      "articleId": 2
+    }
+  ]
+}
