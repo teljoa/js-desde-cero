@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Crear Nuevo Juego</h1>
+
+    
+    <form id="gameForm">
+        <label for="title">Título del juego:</label>
+        <input type="text" name="title" id="title" placeholder="Título del juego" required><br><br>
+        
+        <label for="genre">Género:</label>
+        <input type="text" name="genre" id="genre" placeholder="Género" required><br><br>
+        
+        <label for="description">Descripción:</label>
+        <textarea name="description" id="description" placeholder="Descripción del juego" required></textarea><br><br>
+        
+        <label for="price">Precio (€):</label>
+        <input type="number" name="price" id="price" placeholder="Precio (€)" step="0.01" required><br><br>
+        
+        <button type="submit">Crear Juego</button>
+    </form>
+
+    <div id="status"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
